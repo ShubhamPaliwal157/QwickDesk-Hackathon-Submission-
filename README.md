@@ -1,1 +1,1 @@
-# QwickDesk-Hackathon-Submission-
+# QwickDesk
