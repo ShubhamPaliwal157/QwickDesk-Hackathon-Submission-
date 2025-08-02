@@ -16,7 +16,15 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const token = req.headers.authorization?.split(' ')[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const question = new Question({ ...req.body, user: decoded.id });
+    const { title, description, tags } = req.body;
+
+const question = new Question({
+  title,
+  description,
+  tags,
+  user: decoded.id
+  
+});
     await question.save();
     res.status(201).json(question);
 });
